@@ -1,0 +1,160 @@
+.navbar {
+  position: fixed;
+
+  bottom: 1.2rem;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: calc(100% - 2rem);
+  max-width: 430px;
+
+  height: 68px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  padding: 0.55rem;
+
+  border-radius: 24px;
+
+  background: rgba(10, 10, 12, 0.78);
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    0 8px 20px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  z-index: 999;
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.35s ease,
+    background 0.3s ease;
+}
+
+.navbar.hidden {
+  transform: translateX(-50%) translateY(120px);
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nav-item {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  border-radius: 16px;
+
+  position: relative;
+
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 1.35rem;
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+
+  svg {
+    transition: transform 0.25s ease;
+  }
+
+  &:hover {
+    color: white;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    svg {
+      transform: translateY(-1px);
+    }
+  }
+
+  &:active {
+    transform: scale(0.94);
+  }
+
+  &.active {
+    color: white;
+
+    background: rgba(139, 92, 246, 0.12);
+
+    border: 1px solid rgba(139, 92, 246, 0.18);
+
+    box-shadow:
+      0 8px 20px rgba(139, 92, 246, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+    svg {
+      transform: translateY(-1px);
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+
+      top: 7px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      width: 4px;
+      height: 4px;
+
+      border-radius: 50%;
+
+      background: #8b5cf6;
+
+      box-shadow: 0 0 12px rgba(139, 92, 246, 0.8);
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    top: 50%;
+    left: 1.75rem;
+    bottom: auto;
+
+    transform: translateY(-50%);
+
+    width: 84px;
+    height: auto;
+
+    flex-direction: column;
+
+    gap: 0.8rem;
+
+    padding: 0.8rem;
+
+    border-radius: 28px;
+  }
+
+  .navbar.hidden {
+    transform: translateY(-50%) translateX(-120px);
+
+    opacity: 0;
+  }
+
+  .nav-item {
+    width: 56px;
+    height: 56px;
+
+    font-size: 1.45rem;
+  }
+}

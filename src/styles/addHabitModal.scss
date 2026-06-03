@@ -1,0 +1,168 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1.5rem;
+
+  background: rgba(8, 8, 10, 0.75);
+
+  backdrop-filter: blur(14px);
+
+  z-index: 9999;
+
+  animation: fadeIn 0.25s ease;
+}
+
+.habit-modal {
+  width: min(92%, 460px);
+
+  padding: 2rem;
+
+  border-radius: 30px;
+
+  background: linear-gradient(180deg, rgba(26, 26, 30, 0.98) 0%, rgba(16, 16, 18, 0.98) 100%);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.03);
+
+  animation: modalEnter 0.3s ease;
+
+  overflow: hidden;
+}
+
+.modal-header {
+  margin-bottom: 1.5rem;
+
+  h2 {
+    color: #ffffff;
+
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    letter-spacing: -0.02em;
+
+    margin-bottom: 0.4rem;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.55);
+
+    font-size: 0.95rem;
+
+    line-height: 1.5;
+  }
+}
+
+.habit-modal input {
+  width: 100%;
+
+  padding: 1rem 1.1rem;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  color: white;
+
+  font-size: 0.95rem;
+
+  transition: all 0.25s ease;
+
+  outline: none;
+}
+
+.habit-modal input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.habit-modal input:focus {
+  border-color: rgba(255, 255, 255, 0.18);
+
+  background: rgba(255, 255, 255, 0.06);
+
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.04);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 0.75rem;
+
+  margin-top: 1.5rem;
+}
+
+.modal-actions button {
+  min-width: 110px;
+
+  padding: 0.95rem 1.25rem;
+
+  border: none;
+
+  border-radius: 16px;
+
+  font-weight: 600;
+
+  font-size: 0.95rem;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.modal-actions button:first-child {
+  background: rgba(255, 255, 255, 0.05);
+
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.modal-actions button:first-child:hover {
+  background: rgba(255, 255, 255, 0.08);
+
+  transform: translateY(-2px);
+}
+
+.modal-actions button:last-child {
+  background: white;
+
+  color: #111;
+}
+
+.modal-actions button:last-child:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.18);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+
+    transform: translateY(20px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+  }
+}

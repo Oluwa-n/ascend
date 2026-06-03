@@ -1,0 +1,379 @@
+:root {
+  --bg0: #070a12;
+  --bg1: #0b1020;
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-strong: rgba(255, 255, 255, 0.08);
+  --stroke: rgba(255, 255, 255, 0.08);
+  --text: #e8ecf1;
+  --muted: rgba(232, 236, 241, 0.55);
+  --accent: #a78bfa;
+  --accent2: #60a5fa;
+}
+
+.more-page {
+  min-height: 103vh;
+  padding: 2rem;
+
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui;
+
+  background:
+    radial-gradient(1200px circle at 10% 0%, rgba(167, 139, 250, 0.18), transparent 40%),
+    radial-gradient(900px circle at 90% 20%, rgba(96, 165, 250, 0.12), transparent 45%),
+    radial-gradient(800px circle at 50% 100%, rgba(236, 72, 153, 0.08), transparent 50%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
+
+  overflow-x: hidden;
+}
+
+/* =========================
+   HEADER (LUXURY TITLE)
+========================= */
+
+.more-header {
+  margin-bottom: 2rem;
+
+  animation: floatIn 0.6s ease;
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+
+    background: linear-gradient(90deg, #fff, #a78bfa, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  p {
+    margin-top: 0.4rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================
+   PROFILE (FLOATING GLASS CARD)
+========================= */
+
+.profile-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1.3rem 1.5rem;
+
+  border-radius: 20px;
+
+  background: linear-gradient(135deg, var(--glass), rgba(255, 255, 255, 0.02));
+  border: 1px solid var(--stroke);
+
+  backdrop-filter: blur(24px);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  margin-bottom: 1.8rem;
+
+  transition: all 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgba(167, 139, 250, 0.25);
+}
+
+.profile-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  img {
+    width: 56px;
+    height: 56px;
+
+    border-radius: 18px;
+
+    object-fit: cover;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 1.05rem;
+  }
+
+  span {
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+}
+
+.profile-right {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* =========================
+   STATS (NEON FLOATING CARDS)
+========================= */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  position: relative;
+  padding: 1.3rem;
+
+  border-radius: 18px;
+
+  background: linear-gradient(145deg, var(--glass), rgba(255, 255, 255, 0.02));
+
+  border: 1px solid var(--stroke);
+
+  backdrop-filter: blur(20px);
+
+  overflow: hidden;
+
+  transition: all 0.35s ease;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.25), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(96, 165, 250, 0.25);
+}
+
+.stat-card h3 {
+  margin: 0;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.stat-card span {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* =========================
+   ADD INPUT (FLOATING BAR)
+========================= */
+
+.add-box {
+  display: flex;
+  gap: 0.8rem;
+
+  margin-bottom: 2rem;
+}
+
+.add-box input {
+  flex: 1;
+
+  padding: 1rem 1.1rem;
+
+  border-radius: 16px;
+
+  border: 1px solid var(--stroke);
+
+  background: rgba(255, 255, 255, 0.03);
+
+  color: white;
+
+  outline: none;
+
+  backdrop-filter: blur(18px);
+
+  transition: all 0.25s ease;
+}
+
+.add-box input:focus {
+  border-color: rgba(167, 139, 250, 0.6);
+  box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.12);
+}
+
+.add-box button {
+  padding: 1rem 1.3rem;
+
+  border-radius: 16px;
+
+  border: none;
+
+  color: white;
+
+  background: linear-gradient(135deg, #a78bfa, #60a5fa);
+
+  cursor: pointer;
+
+  box-shadow: 0 20px 50px rgba(167, 139, 250, 0.25);
+
+  transition: all 0.25s ease;
+}
+
+.add-box button:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* =========================
+   HABIT LIST (GLASS FLOAT ROWS)
+========================= */
+
+.habit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.habit-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1.1rem 1.2rem;
+
+  border-radius: 18px;
+
+  background: linear-gradient(135deg, var(--glass), rgba(255, 255, 255, 0.02));
+
+  border: 1px solid var(--stroke);
+
+  backdrop-filter: blur(18px);
+
+  transition: all 0.3s ease;
+}
+
+.habit-row:hover {
+  transform: translateY(-4px);
+  border-color: rgba(167, 139, 250, 0.25);
+}
+
+.habit-info h4 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.habit-info span {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* =========================
+   ACTION BUTTONS (SOFT NEON)
+========================= */
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.actions button {
+  padding: 0.45rem 0.8rem;
+
+  border-radius: 12px;
+
+  border: 1px solid var(--stroke);
+
+  background: rgba(255, 255, 255, 0.03);
+
+  color: var(--text);
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.actions button:hover {
+  background: rgba(167, 139, 250, 0.15);
+  border-color: rgba(167, 139, 250, 0.35);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   ANIMATIONS (SMOOTH PREMIUM)
+========================= */
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .habit-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+.logout-btn {
+  width: 100%;
+
+  height: 52px;
+
+  border-radius: 16px;
+
+  background: rgba(239, 68, 68, 0.12);
+
+  border: 1px solid rgba(239, 68, 68, 0.25);
+
+  color: #ef4444;
+
+  font-weight: 600;
+
+  transition: all 0.25s ease;
+
+  &:hover {
+    background: rgba(239, 68, 68, 0.18);
+    transform: translateY(-2px);
+  }
+}
+
+.danger-zone {
+  margin-top: 1.5rem;
+}
