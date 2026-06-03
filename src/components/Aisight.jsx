@@ -13,8 +13,6 @@ import { FiSend, FiArrowLeft } from 'react-icons/fi';
 import { NavLink } from 'react-router-dom';
 
 export default function Ainsight() {
-  const userId = 'demo-user';
-
   const [habits, setHabits] = useState([]);
   const [memory, setMemory] = useState(null);
   const [messages, setMessages] = useState([]);
@@ -35,7 +33,7 @@ export default function Ainsight() {
 
   const loadData = async () => {
     try {
-      const [habitData, memoryData] = await Promise.all([getHabits(), getUserMemory(userId)]);
+      const [habitData, memoryData] = await Promise.all([getHabits(), getUserMemory()]);
 
       setHabits(habitData);
       setMemory(memoryData);
@@ -79,7 +77,7 @@ export default function Ainsight() {
       ]);
 
       try {
-        await updateUserMemory(userId, {
+        await updateUserMemory({
           summary: `User asked: ${userMsg}`,
         });
       } catch (memoryError) {

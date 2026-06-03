@@ -1,5 +1,5 @@
 import { doc, getDoc, setDoc } from 'firebase/firestore';
-import { db } from '../firebase/config';
+import { db, auth } from '../firebase/config';
 
 /*
 |--------------------------------------------------------------------------
@@ -7,8 +7,15 @@ import { db } from '../firebase/config';
 |--------------------------------------------------------------------------
 */
 
-export const getUserMemory = async (userId) => {
-  const ref = doc(db, 'users', userId, 'memory', 'data');
+export const getUserMemory = async () => {
+  const uid = auth.currentUser?.uid;
+
+  if (!uid) {
+    throw new Error('User not authenticated');
+  }
+
+  const ref = doc(db, 'users', uid, 'memory', 'data');
+
   const snap = await getDoc(ref);
 
   return snap.exists() ? snap.data() : null;
@@ -20,8 +27,14 @@ export const getUserMemory = async (userId) => {
 |--------------------------------------------------------------------------
 */
 
-export const updateUserMemory = async (userId, data) => {
-  const ref = doc(db, 'users', userId, 'memory', 'data');
+export const updateUserMemory = async (data) => {
+  const uid = auth.currentUser?.uid;
+
+  if (!uid) {
+    throw new Error('User not authenticated');
+  }
+
+  const ref = doc(db, 'users', uid, 'memory', 'data');
 
   await setDoc(
     ref,
