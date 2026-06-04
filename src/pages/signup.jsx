@@ -33,7 +33,7 @@ export default function Signup() {
 
       await signup(name, email, password);
 
-      navigate('/home');
+      navigate('/');
     } catch (err) {
       console.log(err);
 
