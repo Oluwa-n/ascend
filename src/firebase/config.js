@@ -21,7 +21,10 @@ const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
 
-setPersistence(auth, browserLocalPersistence).catch(console.error);
+// Persist login across browser sessions and PWA launches
+setPersistence(auth, browserLocalPersistence).catch((err) => {
+  console.error('Auth persistence error:', err);
+});
 
 export const googleProvider = new GoogleAuthProvider();
 
