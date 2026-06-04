@@ -19,6 +19,10 @@ export const AuthProvider = ({ children }) => {
     return unsub;
   }, []);
 
+  if (loading) {
+    return null;
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -26,7 +30,7 @@ export const AuthProvider = ({ children }) => {
         logout,
       }}
     >
-      {!loading && children}
+      {children}
     </AuthContext.Provider>
   );
 };
