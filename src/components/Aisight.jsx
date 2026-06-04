@@ -101,7 +101,7 @@ export default function Ainsight() {
   return (
     <div className="chat-app">
       <header className="chat-header">
-        <NavLink to="/home" className="back-btn">
+        <NavLink to="/" className="back-btn">
           <FiArrowLeft size={18} />
         </NavLink>
 

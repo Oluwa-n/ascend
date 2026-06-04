@@ -38,7 +38,7 @@ function Navbar() {
 
   return (
     <nav className={`navbar ${hidden ? 'hidden' : ''}`}>
-      <NavLink to="/home" className={({ isActive }) => (isActive ? 'nav-item active' : 'nav-item')}>
+      <NavLink to="/" className={({ isActive }) => (isActive ? 'nav-item active' : 'nav-item')}>
         <HiOutlineHome />
       </NavLink>
 
